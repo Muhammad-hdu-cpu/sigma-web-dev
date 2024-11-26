@@ -1,10 +1,21 @@
-let box1 = document.getElementById('box1').style
-let box2 = document.getElementById('box2').style
-let box3 = document.getElementById('box3').style
-let box4 = document.getElementById('box4').style
-let box5 = document.getElementById('box5').style
-box1.color = 'red';box1.backgroundColor= 'green'
-box2.color = 'aqua';box2.backgroundColor= 'red'
-box3.color = 'white';box3.backgroundColor= 'orange'
-box4.color = 'blue';box4.backgroundColor= 'white'
-box5.color = 'orange';box5.backgroundColor= 'blue'
+// Function to generate a random color in hex format
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+// Select all boxes
+const boxes = document.querySelectorAll('.box');
+
+// Loop through each box and apply random colors
+boxes.forEach(box => {
+    const textColor = getRandomColor();
+    const backgroundColor = getRandomColor();
+
+    box.style.color = textColor;           // Set random text color
+    box.style.backgroundColor = backgroundColor; // Set random background color
+});
